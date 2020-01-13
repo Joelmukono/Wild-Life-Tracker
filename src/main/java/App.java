@@ -13,7 +13,7 @@ public class App {
         staticFileLocation("/public");
 
         //save animals
-        get("/save_animals", (request, response) -> {
+        post("/save_animals", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String newAnimals = request.queryParams("name");
             Animal newAnimal = new Animal(newAnimals);
@@ -23,7 +23,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         // render add animal form
-        post("/add_animal",(request, response) -> {
+        get("/add_animal",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model,"add-animal-form.hbs");
         },new HandlebarsTemplateEngine());
