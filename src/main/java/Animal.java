@@ -16,6 +16,10 @@ public class Animal {
         return name;
     }
 
+    public  Timestamp getCreated(){
+        return created;
+    }
+
     @Override
     public boolean equals(Object otherPerson){
         if (!(otherPerson instanceof Animal )) {
