@@ -21,6 +21,11 @@ public class App {
         return null;
         }, new HandlebarsTemplateEngine());
 
+        get("/add_animal",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model,"add-animal-form.hbs");
+        },new HandlebarsTemplateEngine());
+
     }
 
 
