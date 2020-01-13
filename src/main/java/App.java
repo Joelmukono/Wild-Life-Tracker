@@ -12,6 +12,15 @@ public class App {
     public static void main(String[] args){
         staticFileLocation("/public");
 
+        get("/save_animals", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String newAnimals = request.queryParams("name");
+            Animal newAnimal = new Animal(newAnimals);
+            newAnimal.save();
+            response.redirect("/");
+        return null;
+        }, new HandlebarsTemplateEngine());
+
     }
 
 
