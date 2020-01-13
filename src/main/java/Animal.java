@@ -33,7 +33,12 @@ public class Animal {
         }
     }
 
-
+    public static List<Animal> all() {
+        String sql = "SELECT * FROM persons";
+        try(Connection con = DB.sql2o.open()) {
+            return con.createQuery(sql).executeAndFetch(Animal.class);
+        }
+    }
 
 
 }
