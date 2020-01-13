@@ -6,7 +6,7 @@ import java.util.List;
 public class Animal {
     private String name;
     private Timestamp created;
-    private int animalId;
+    private int id;
 
     public Animal(String name){
         this.name = name;
@@ -32,7 +32,7 @@ public class Animal {
     public void save() {
         try(Connection con = DB.sql2o.open()) {
             String sql = "INSERT INTO animals (name,created) VALUES (:name,now())";
-            this.animalId = (int) con.createQuery(sql, true)
+            this.id = (int) con.createQuery(sql, true)
                     .addParameter("name", this.name)
                     .executeUpdate()
                     .getKey();
