@@ -1,8 +1,10 @@
 import org.sql2o.Connection;
 
+import java.util.List;
+
 public class Animal {
     private String name;
-    private String id;
+    private int id;
 
     public Animal(String name){
         this.name = name;
@@ -24,12 +26,14 @@ public class Animal {
     public void save() {
         try(Connection con = DB.sql2o.open()) {
             String sql = "INSERT INTO persons (name) VALUES (:name)";
-            this.id = (String) con.createQuery(sql, true)
+            this.id = (int) con.createQuery(sql, true)
                     .addParameter("name", this.name)
                     .executeUpdate()
                     .getKey();
         }
     }
+
+
 
 
 }
