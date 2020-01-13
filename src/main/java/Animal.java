@@ -1,11 +1,12 @@
 import org.sql2o.Connection;
 import org.sql2o.Sql2oException;
-
+import java.sql.Timestamp;
 import java.util.List;
 
 public class Animal {
     private String name;
-    private int id;
+    private Timestamp created;
+    private int animalId;
 
     public Animal(String name){
         this.name = name;
@@ -26,8 +27,8 @@ public class Animal {
     }
     public void save() {
         try(Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO animals (name) VALUES (:name)";
-            this.id = (int) con.createQuery(sql, true)
+            String sql = "INSERT INTO animals (name,id,created) VALUES (:name,animalId,now())";
+            this.animalId = (int) con.createQuery(sql, true)
                     .addParameter("name", this.name)
                     .executeUpdate()
                     .getKey();
