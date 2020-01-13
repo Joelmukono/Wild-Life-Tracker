@@ -10,4 +10,14 @@ public class Animal {
         return name;
     }
 
+    @Override
+    public boolean equals(Object otherPerson){
+        if (!(otherPerson instanceof Animal )) {
+            return false;
+        } else {
+            Animal newPerson = (Animal) otherPerson;
+            return this.getName().equals(newPerson.getName());
+        }
+    }
+
 }
