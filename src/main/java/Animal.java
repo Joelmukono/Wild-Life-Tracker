@@ -1,4 +1,5 @@
 import org.sql2o.Connection;
+import org.sql2o.Sql2oException;
 
 import java.util.List;
 
@@ -37,6 +38,18 @@ public class Animal {
         String sql = "SELECT * FROM animals";
         try(Connection con = DB.sql2o.open()) {
             return con.createQuery(sql).executeAndFetch(Animal.class);
+        }
+    }
+
+    public void update(int id, String newName){
+        String sql = "UPDATE animals SET name = :name WHERE id=:id";
+        try(Connection con = DB.sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("name", newName)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
         }
     }
 

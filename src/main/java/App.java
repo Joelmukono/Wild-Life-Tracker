@@ -35,6 +35,15 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("update_animal",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String newAnimal = request.queryParams("name");
+            int idOfAnimalToEdit = Integer.parseInt(request.params("id"));
+            Animal animals = new Animal(newAnimal);
+            animals.update(idOfAnimalToEdit,newAnimal );
+            return new ModelAndView(model,"add-animal-form.hbs");
+        },new HandlebarsTemplateEngine());
+
     }
 
 
