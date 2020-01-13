@@ -31,7 +31,7 @@ public class Animal {
     }
     public void save() {
         try(Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO animals (name,id,created) VALUES (:name,animalId,now())";
+            String sql = "INSERT INTO animals (name,id,created) VALUES (:name,:animalId,now())";
             this.animalId = (int) con.createQuery(sql, true)
                     .addParameter("name", this.name)
                     .executeUpdate()
