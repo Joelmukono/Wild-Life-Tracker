@@ -12,6 +12,7 @@ public class App {
     public static void main(String[] args){
         staticFileLocation("/public");
 
+        //save animals
         get("/save_animals", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String newAnimals = request.queryParams("name");
@@ -21,10 +22,18 @@ public class App {
         return null;
         }, new HandlebarsTemplateEngine());
 
-        get("/add_animal",(request, response) -> {
+        // render add animal form
+        post("/add_animal",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model,"add-animal-form.hbs");
         },new HandlebarsTemplateEngine());
+
+        get("/", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Animal> animals = Animal.all();
+            model.put("animals", animals);
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
 
     }
 
