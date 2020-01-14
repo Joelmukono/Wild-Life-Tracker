@@ -47,9 +47,9 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
-        get("/add_animal",(request, response) -> {
+        get("/add_sighting",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model,"add-animal-form.hbs");
+            return new ModelAndView(model,"add-sighting-form.hbs");
         },new HandlebarsTemplateEngine());
 
     }
