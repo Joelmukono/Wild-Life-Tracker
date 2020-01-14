@@ -21,7 +21,20 @@
             </p><p>Date Created:{{created}}</p>
         {{/each}}
     {{else}}
-        <p>No animals!</p>
+        <p>No animal sightings!</p>
+    {{/if}}
+
+    <h1> List of Endangered Animals</h1>
+
+    {{#if endangered}}
+        {{#each endangered}}
+            <p>{{name}} </p>
+            <p>{{health}} </p>
+
+            </p><p>Date Created:{{created}}</p>
+        {{/each}}
+    {{else}}
+        <p>No endangered animals!</p>
     {{/if}}
 
 
