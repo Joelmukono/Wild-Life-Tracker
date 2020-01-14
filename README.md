@@ -25,7 +25,7 @@ sightings and weather or not they are endangered and the state of their health
 - CREATE DATABASE wild_life_tracker;
 - CREATE TABLE animals (id serial PRIMARY KEY, name varchar, createdAt timestamp);
 - CREATE TABLE endangered (id serial PRIMARY KEY, name varchar, health varchar,created timestamp );
-- CREATE TABLE endangered (id serial PRIMARY KEY, name varchar, health varchar,created timestamp );
+- CREATE TABLE sightings (id serial PRIMARY KEY, rangername varchar,created timestamp );
 
 ## fork repo
 - Fork repository
