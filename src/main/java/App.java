@@ -56,6 +56,25 @@ public class App {
 
 
 
+        post("/add_endangered", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String newName = request.queryParams("name");
+            String newRangerHealth = request.queryParams("health");
+            EndangeredAnimals newEndangered = new EndangeredAnimals(newName,newRangerHealth);
+            newEndangered.save();
+            response.redirect("/");
+            return null;
+
+        }, new HandlebarsTemplateEngine());
+
+
+        get("/add_endangered",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model,"add-endangered-form.hbs");
+        },new HandlebarsTemplateEngine());
+
+
+
     }
 
 
