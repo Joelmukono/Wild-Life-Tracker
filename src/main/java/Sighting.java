@@ -21,7 +21,7 @@ public class Sighting implements Sightings {
         try(Connection con = DB.sql2o.open()) {
             String sql = "INSERT INTO sightings (location, rangername,created) VALUES (:location, :rangerName,now())";
             this.id = (int) con.createQuery(sql, true)
-                    .addParameter("name", this.location)
+                    .addParameter("location", this.location)
                     .addParameter("description", this.rangerName)
                     .executeUpdate()
                     .getKey();
