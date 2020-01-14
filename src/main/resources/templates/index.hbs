@@ -10,6 +10,23 @@
     {{else}}
         <p>No animals!</p>
     {{/if}}
+
+    <h1> List of Sightings</h1>
+
+    {{#if sighting}}
+        {{#each sighting }}
+            <p>List of added animals</p>
+            <p>{{ location }} </p>
+            <p>{{ rangerName }} </p>
+
+            <p>Edit<a href=""></a>
+            </p><p>Date Created:{{created}}</p>
+        {{/each}}
+    {{else}}
+        <p>No animals!</p>
+    {{/if}}
+
+
 {{/partial}}
 
 {{> layout.hbs}}
