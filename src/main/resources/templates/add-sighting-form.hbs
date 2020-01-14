@@ -3,8 +3,10 @@
     {{#if editTask}}
         <h1>Edit this Post!</h1>
         <form action="/tasks/{{editTask.id}}" method="post">
-            <label for="description">Edit this task's description</label>
-            <input id="description" name="name" type="text">
+            <label for="description">Add Location</label>
+            <input id="description" name="location" type="text">
+            <label for="description">Add Ranger Name</label>
+            <input id="description" name="rangerName" type="text">
         </form>
 
     {{else}}
@@ -12,10 +14,10 @@
 
         <h1>Add Sighting</h1>
         <form action="/add_sighting" method="post">
-            <label for="description">Edit this task's description</label>
-            <input id="description" name="name" type="text">
-
-            <button type="submit" class="btn btn-default">Go!</button>
+            <label for="locatiom">Add Location</label>
+            <input id="location" name="location" type="text">
+            <label for="name">Add Ranger Name</label>
+            <input id="name" name="rangerName" type="text">
         </form>
     {{/if}}
 
