@@ -8,6 +8,8 @@ sightings and weather or not they are endangered and the state of their health
 |Show animals | Show list of animals that have been spotted|
 |Add animals to database|use form to input animal data to database|
 |Show sightings|Show information about animal sightings|
+|Add Sightings to database|Display Sightings|
+|Add endagered animals|Display endangered animals|
 ### AUTHOR
 * Joel Mukono
 ### Technologies used 
