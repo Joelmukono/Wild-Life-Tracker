@@ -22,7 +22,7 @@ public class Sighting implements Sightings {
             String sql = "INSERT INTO sightings (location, rangername,created) VALUES (:location, :rangerName,now())";
             this.id = (int) con.createQuery(sql, true)
                     .addParameter("location", this.location)
-                    .addParameter("rangername", this.rangerName)
+                    .addParameter("rangerName", this.rangerName)
                     .executeUpdate()
                     .getKey();
         }
