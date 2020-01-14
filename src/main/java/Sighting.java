@@ -5,8 +5,26 @@ import java.util.List;
 
 public class Sighting implements Sightings {
     private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public String getRangerName() {
+        return rangerName;
+    }
+
     private String location;
     private String rangerName;
+
+    public Timestamp getCreated() {
+        return created;
+    }
+
     private Timestamp created;
 
     public Sighting(String location,String rangerName){
