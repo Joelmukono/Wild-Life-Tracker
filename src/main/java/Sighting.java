@@ -38,4 +38,4 @@ public class Sighting implements Sightings {
     }
 
     }
-}
+
