@@ -1,12 +1,15 @@
 import org.sql2o.Connection;
 import org.sql2o.Sql2oException;
 
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.List;
 
 public class EndangeredAnimals {
     private int id;
     private String name;
     private String health;
+    private Timestamp created;
 
     public String getName(){
         return name;
@@ -32,7 +35,7 @@ public class EndangeredAnimals {
     }
     public void save() {
         try(Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO endangered (name,health) VALUES (:name,:health)";
+            String sql = "INSERT INTO endangered (name,health,created) VALUES (:name,:health,now())";
             this.id = (int) con.createQuery(sql, true)
                     .addParameter("name", this.name)
                     .addParameter("health",this.health)
