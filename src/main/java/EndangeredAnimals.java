@@ -11,6 +11,8 @@ public class EndangeredAnimals {
     private String health;
     private Timestamp created;
 
+    public static final boolean HEALTH = true;
+
     public EndangeredAnimals(String name, String health) {
         this.name = name;
         this.health = health;
