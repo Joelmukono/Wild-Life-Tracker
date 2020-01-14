@@ -32,6 +32,8 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             List<Animal> animals = Animal.all();
             model.put("animals", animals);
+            List<Sighting> sighting = Sighting.all();
+            model.put("sighting", sighting);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -52,12 +54,7 @@ public class App {
             return new ModelAndView(model,"add-sighting-form.hbs");
         },new HandlebarsTemplateEngine());
 
-        get("/", (req, res) -> {
-            Map<String, Object> model = new HashMap<>();
-            List<Sighting> sighting = Sighting.all();
-            model.put("sighting", sighting);
-            return new ModelAndView(model, "index.hbs");
-        }, new HandlebarsTemplateEngine());
+
 
     }
 
