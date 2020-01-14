@@ -1,5 +1,6 @@
 {{#partial "content"}}
-
+<div class="row">
+    <div class="col-sm 6">
     <h1> List of Animals</h1>
 
     {{#if animals}}
@@ -10,6 +11,10 @@
     {{else}}
         <p>No animals!</p>
     {{/if}}
+
+    </div>
+
+    <div class="col-sm-6">
 
     <h1> List of Sightings</h1>
 
@@ -24,18 +29,9 @@
         <p>No animal sightings!</p>
     {{/if}}
 
-    <h1> List of Endangered Animals</h1>
+</div>
 
-    {{#if endangered}}
-        {{#each endangered}}
-            <p>{{name}} </p>
-            <p>{{health}} </p>
-
-            </p><p>Date Created:{{created}}</p>
-        {{/each}}
-    {{else}}
-        <p>No endangered animals!</p>
-    {{/if}}
+</div>
 
 
 {{/partial}}
