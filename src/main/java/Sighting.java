@@ -23,7 +23,6 @@ public class Sighting implements Sightings {
             this.id = (int) con.createQuery(sql, true)
                     .addParameter("name", this.location)
                     .addParameter("description", this.rangerName)
-                    .addParameter("date",this.created)
                     .executeUpdate()
                     .getKey();
         }

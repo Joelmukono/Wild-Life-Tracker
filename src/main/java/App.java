@@ -35,21 +35,21 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //show post route form
-        get("/updateForm",(request, response) -> {
+        post("/add_sighting", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-           return new ModelAndView(model,"add-animal-form.hbs");
-        }, new HandlebarsTemplateEngine());
-
-        //edit post route
-        post("update_animal/:id",(request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-            String newAnimal = request.queryParams("name");
-            int idOfAnimalToEdit = Integer.parseInt(request.params("id"));
-            Animal animals = new Animal(newAnimal);
-            animals.update(idOfAnimalToEdit,newAnimal );
+            String newLocation = request.queryParams("location");
+            String newRangerName = request.queryParams("rangerName");
+            Sighting newSighting = new Sighting(newLocation,newRangerName);
+            newSighting.save();
             response.redirect("/");
             return null;
+
+        }, new HandlebarsTemplateEngine());
+
+
+        get("/add_animal",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model,"add-animal-form.hbs");
         },new HandlebarsTemplateEngine());
 
     }
