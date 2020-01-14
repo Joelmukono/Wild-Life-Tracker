@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class Sighting implements Sightings {
+
     private int id;
 
     public int getId() {

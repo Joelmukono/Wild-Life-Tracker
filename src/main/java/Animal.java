@@ -6,6 +6,11 @@ import java.util.List;
 public class Animal {
     private String name;
     private Timestamp created;
+
+    public int getId() {
+        return id;
+    }
+
     private int id;
 
     public Animal(String name){
