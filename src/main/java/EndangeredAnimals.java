@@ -32,9 +32,10 @@ public class EndangeredAnimals {
     }
     public void save() {
         try(Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO endangered (name) VALUES (:name)";
+            String sql = "INSERT INTO endangered (name,health) VALUES (:name,:health)";
             this.id = (int) con.createQuery(sql, true)
                     .addParameter("name", this.name)
+                    .addParameter("health",this.health)
                     .executeUpdate()
                     .getKey();
         }
@@ -47,16 +48,6 @@ public class EndangeredAnimals {
         }
     }
 
-    public void update(int id, String newName){
-        String sql = "UPDATE endangered SET name = :name WHERE id=:id";
-        try(Connection con = DB.sql2o.open()){
-            con.createQuery(sql)
-                    .addParameter("name", newName)
-                    .addParameter("id", id)
-                    .executeUpdate();
-        } catch (Sql2oException ex) {
-            System.out.println(ex);
-        }
-    }
+
 
 }
