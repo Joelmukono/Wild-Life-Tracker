@@ -34,6 +34,8 @@ public class App {
             model.put("animals", animals);
             List<Sighting> sighting = Sighting.all();
             model.put("sighting", sighting);
+            List<EndangeredAnimals> endangered = EndangeredAnimals.all();
+            model.put("endangered", endangered);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 

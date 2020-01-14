@@ -53,10 +53,10 @@ public class EndangeredAnimals {
         }
     }
 
-    public static List<Animal> all() {
+    public static List<EndangeredAnimals> all() {
         String sql = "SELECT * FROM endangered";
         try(Connection con = DB.sql2o.open()) {
-            return con.createQuery(sql).executeAndFetch(Animal.class);
+            return con.createQuery(sql).executeAndFetch(EndangeredAnimals.class);
         }
     }
 
