@@ -5,7 +5,7 @@
     {{#if animals}}
         {{#each animals }}
             <p>List of added animals</p>
-            <p>{{name}} </p><p>Edit<a href=""></a></p><p>Date Created:{{created}}</p>
+            <p>Animal Name:{{name}} </p></p><p>Date Created:{{created}}</p>
         {{/each}}
     {{else}}
         <p>No animals!</p>
@@ -15,8 +15,8 @@
 
     {{#if sighting}}
         {{#each sighting}}
-            <p>{{location}} </p>
-            <p>{{rangerName}} </p>
+            <p>Location:{{location}} </p>
+            <p>Ranger Name{{rangerName}} </p>
 
             </p><p>Date Created:{{created}}</p>
         {{/each}}
